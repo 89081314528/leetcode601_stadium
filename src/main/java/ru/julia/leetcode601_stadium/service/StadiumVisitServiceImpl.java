@@ -11,13 +11,13 @@ import java.util.List;
 
 @Service
 public class StadiumVisitServiceImpl implements StadiumVisitService {
-    StadiumVisitRepository stadiumVisitRepository;
+    final StadiumVisitRepository stadiumVisitRepository;
 
     public StadiumVisitServiceImpl(StadiumVisitRepository stadiumVisitRepository) {
         this.stadiumVisitRepository = stadiumVisitRepository;
     }
 
-    public List<Visit> acs() {
+    public List<Visit> getVisitsSortedAsc() {
         List<StadiumVisit> stadiumVisitList =
                 stadiumVisitRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
         List<Visit> visitList = new ArrayList<>();
@@ -28,13 +28,13 @@ public class StadiumVisitServiceImpl implements StadiumVisitService {
         return visitList;
     }
 
-    public List<Visit> biggerThan(int a) {// как здесь вызвать acs?
+    public List<Visit> biggerThan(int numberOfPeople) {// как здесь вызвать acs? нужно метод биггер делать в другом сервисе
         List<StadiumVisit> stadiumVisitList =
                 stadiumVisitRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
         List<Visit> visitList = new ArrayList<>();
         for (int i = 0; i < stadiumVisitList.size(); i++) {
             StadiumVisit stadiumVisit = stadiumVisitList.get(i);
-            if (stadiumVisit.getPeople() >= a) {
+            if (stadiumVisit.getPeople() >= numberOfPeople) {
                 visitList.add(new Visit(stadiumVisit.getId(), stadiumVisit.getDate(), stadiumVisit.getPeople()));
             }
         }

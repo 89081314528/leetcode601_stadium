@@ -1,0 +1,82 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Julia" id="someUniqueId2">
+        <createTable tableName="stadium_visits">
+            <column name="stadium_visit_id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="visit_date" type="bigint"/>
+            <column name="people" type="bigint"/>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Julia" id="someUniqueId3">
+        <insert tableName="stadium_visits">
+            <column name="stadium_visit_id">
+                1
+            </column>
+            <column name="visit_date">
+                1
+            </column>
+            <column name="people">
+                900
+            </column>
+        </insert>
+    </changeSet>
+
+    <changeSet author="Julia" id="someUniqueId4">
+
+        <insert tableName="stadium_visits">
+            <column name="stadium_visit_id">
+                2
+            </column>
+            <column name="visit_date">
+                2
+            </column>
+            <column name="people">
+                20
+            </column>
+        </insert>
+        <insert tableName="stadium_visits">
+            <column name="stadium_visit_id">
+                3
+            </column>
+            <column name="visit_date">
+                3
+            </column>
+            <column name="people">
+                1500
+            </column>
+        </insert>
+        <insert tableName="stadium_visits">
+            <column name="stadium_visit_id">
+                4
+            </column>
+            <column name="visit_date">
+                4
+            </column>
+            <column name="people">
+                50
+            </column>
+        </insert>
+        <insert tableName="stadium_visits">
+            <column name="stadium_visit_id">
+                5
+            </column>
+            <column name="visit_date">
+                5
+            </column>
+            <column name="people">
+                2100
+            </column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

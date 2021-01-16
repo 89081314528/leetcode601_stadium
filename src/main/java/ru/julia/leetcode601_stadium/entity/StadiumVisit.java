@@ -11,7 +11,7 @@ public class StadiumVisit {
     @Column(name = "stadium_visit_id")
     @Id
     Long id;
-    @Column(name = "date")
+    @Column(name = "visit_date")
     Long date;
     @Column(name = "people")
     Long people;

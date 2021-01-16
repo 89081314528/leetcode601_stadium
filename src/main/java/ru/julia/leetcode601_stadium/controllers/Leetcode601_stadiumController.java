@@ -8,13 +8,18 @@ import ru.julia.leetcode601_stadium.service.StadiumVisitService;
 
 import java.util.List;
 
+/**
+ * 1) расположить данные по возрастанию (по дате)
+ * 2) вернуть данные больше числа а
+ */
 @RestController
 public class Leetcode601_stadiumController {// правильно назвала контроллер?
+    // в названии классов нельзя исп нижнее подчеркивание
     @RequestMapping("/")
     public static String hi(){
         return "lallala";
     }
-    StadiumVisitService stadiumVisitService;
+    final StadiumVisitService stadiumVisitService;
 
     public Leetcode601_stadiumController(StadiumVisitService stadiumVisitService) {
         this.stadiumVisitService = stadiumVisitService;
@@ -22,10 +27,10 @@ public class Leetcode601_stadiumController {// правильно назвала
 
     @RequestMapping("/acs")
     public List<Visit> acs(){
-        return stadiumVisitService.acs();
+        return stadiumVisitService.getVisitsSortedAsc();
     }
-    @RequestMapping("/biggerThan{a}")// правильно ли я здесь пишу а?
-    public List<Visit> biggerThan(@PathVariable int a){
-        return stadiumVisitService.biggerThan(a);
+    @RequestMapping("/biggerThan/{b}")// правильно ли я здесь пишу а?
+    public List<Visit> biggerThan(@PathVariable("b") int numberOfPeople){
+        return stadiumVisitService.biggerThan(numberOfPeople);
     }
 }
